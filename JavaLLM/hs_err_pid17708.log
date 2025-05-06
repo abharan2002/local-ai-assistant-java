@@ -1,0 +1,241 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 8388608 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3618), pid=17708, tid=13192
+#
+# JRE version:  (17.0.14+7) (build )
+# Java VM: OpenJDK 64-Bit Server VM (17.0.14+7-LTS, mixed mode, emulated-client, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:58644,suspend=y,server=n -agentpath:C:\Users\abharan\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder1\libasyncProfiler.dll=version,jfr,event=wall,interval=10ms,cstack=no,file=C:\Users\abharan\IdeaSnapshots\JavaLlmApplication_2025_05_05_170222.jfr,dbghelppath=C:\Users\abharan\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\abharan\AppData\Local\Temp\JavaLlmApplication_2025_05_05_170222.jfr.log.txt,logLevel=DEBUG -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:C:\Users\abharan\AppData\Local\JetBrains\IntelliJIdea2024.3\captureAgent\debugger-agent.jar -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dfile.encoding=UTF-8 com.abharan.javallm.JavaLlmApplication
+
+Host: 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz, 16 cores, 31G,  Windows 11 , 64 bit Build 26100 (10.0.26100.3624)
+Time: Mon May  5 17:02:22 2025 India Standard Time elapsed time: 0.012327 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001efb5d198f0):  JavaThread "Unknown thread" [_thread_in_vm, id=13192, stack(0x000000884ce00000,0x000000884cf00000)]
+
+Stack: [0x000000884ce00000,0x000000884cf00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x681069]
+V  [jvm.dll+0x838cca]
+V  [jvm.dll+0x83a78e]
+V  [jvm.dll+0x83adf3]
+V  [jvm.dll+0x24826f]
+V  [jvm.dll+0x67dd99]
+V  [jvm.dll+0x67286a]
+V  [jvm.dll+0x30826b]
+V  [jvm.dll+0x30f756]
+V  [jvm.dll+0x35fae3]
+V  [jvm.dll+0x35fd0f]
+V  [jvm.dll+0x2df21c]
+V  [jvm.dll+0x2e0174]
+V  [jvm.dll+0x80a48b]
+V  [jvm.dll+0x36d841]
+V  [jvm.dll+0x7e8db5]
+V  [jvm.dll+0x3f154f]
+V  [jvm.dll+0x3f30c1]
+C  [jli.dll+0x52ab]
+C  [ucrtbase.dll+0x37b0]
+C  [KERNEL32.DLL+0x2e8d7]
+C  [ntdll.dll+0xb14fc]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fffdd7d8f18, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x000001efbdb77580 GCTaskThread "GC Thread#0" [stack: 0x000000884cf00000,0x000000884d000000] [id=4036]
+  0x000001efbdb891a0 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000884d000000,0x000000884d100000] [id=31596]
+  0x000001efbdb8a270 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000884d100000,0x000000884d200000] [id=34184]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fffdcf8f957]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x000001efbdabbb30] Heap_lock - owner thread: 0x000001efb5d198f0
+
+Heap address: 0x0000000602400000, size: 8156 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+<Empty>
+
+Heap:
+ garbage-first heap   total 0K, used 0K [0x0000000602400000, 0x0000000800000000)
+  region size 4096K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007fffdd37a2b9]
+
+GC Heap History (0 events):
+No events
+
+Dll operation events (2 events):
+Event: 0.008 Loaded shared library C:\Users\abharan\.jdks\corretto-17.0.14\bin\java.dll
+Event: 0.009 Loaded shared library C:\Users\abharan\.jdks\corretto-17.0.14\bin\zip.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff666f80000 - 0x00007ff666f8e000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\java.exe
+0x00007ff8a57c0000 - 0x00007ff8a5a20000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff8a3810000 - 0x00007ff8a38d7000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff8a29a0000 - 0x00007ff8a2d6b000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff8a2e10000 - 0x00007ff8a2f5b000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff88bdc0000 - 0x00007ff88bdd7000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\jli.dll
+0x00007ff88b8b0000 - 0x00007ff88b8cb000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\VCRUNTIME140.dll
+0x00007ff8a3610000 - 0x00007ff8a37dc000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff8a2f60000 - 0x00007ff8a2f87000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff887590000 - 0x00007ff887827000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.3624_none_3e086962e3345f24\COMCTL32.dll
+0x00007ff8a4830000 - 0x00007ff8a485a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff8a4230000 - 0x00007ff8a42d9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff8a31c0000 - 0x00007ff8a32f1000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff8a2f90000 - 0x00007ff8a3033000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff8a35d0000 - 0x00007ff8a35ff000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff897f60000 - 0x00007ff897f6c000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\vcruntime140_1.dll
+0x00007ff832650000 - 0x00007ff8326dd000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\msvcp140.dll
+0x00007fffdcca0000 - 0x00007fffdd90c000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\server\jvm.dll
+0x00007ff8a55c0000 - 0x00007ff8a5673000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff8a39e0000 - 0x00007ff8a3a86000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff8a4700000 - 0x00007ff8a4816000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff8a3960000 - 0x00007ff8a39d4000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff8a2820000 - 0x00007ff8a287e000 	C:\WINDOWS\SYSTEM32\POWRPROF.dll
+0x00007ff891370000 - 0x00007ff8913a6000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff89b940000 - 0x00007ff89b94b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff8a2800000 - 0x00007ff8a2814000 	C:\WINDOWS\SYSTEM32\UMPDC.dll
+0x00007ff8a1760000 - 0x00007ff8a177a000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff897bb0000 - 0x00007ff897bba000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\jimage.dll
+0x00007ff8a00a0000 - 0x00007ff8a02e1000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff8a42e0000 - 0x00007ff8a4663000 	C:\WINDOWS\System32\combase.dll
+0x00007ff8a4db0000 - 0x00007ff8a4e86000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff8887b0000 - 0x00007ff8887e9000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff8a2d70000 - 0x00007ff8a2e09000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff883880000 - 0x00007ff8838bb000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\jdwp.dll
+0x00007ff817820000 - 0x00007ff817a2e000 	C:\Users\abharan\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder1\libasyncProfiler.dll
+0x00007ff897fb0000 - 0x00007ff897fbe000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\instrument.dll
+0x00007ff8837f0000 - 0x00007ff883815000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\java.dll
+0x00007ff8486a0000 - 0x00007ff8486b8000 	C:\Users\abharan\.jdks\corretto-17.0.14\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\abharan\.jdks\corretto-17.0.14\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.3624_none_3e086962e3345f24;C:\Users\abharan\.jdks\corretto-17.0.14\bin\server;C:\Users\abharan\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder1
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:58644,suspend=y,server=n -agentpath:C:\Users\abharan\AppData\Local\Temp\idea_libasyncProfiler_dll_temp_folder1\libasyncProfiler.dll=version,jfr,event=wall,interval=10ms,cstack=no,file=C:\Users\abharan\IdeaSnapshots\JavaLlmApplication_2025_05_05_170222.jfr,dbghelppath=C:\Users\abharan\AppData\Local\Temp\idea_dbghelp_dll_temp_folder\dbghelp.dll,log=C:\Users\abharan\AppData\Local\Temp\JavaLlmApplication_2025_05_05_170222.jfr.log.txt,logLevel=DEBUG -XX:TieredStopAtLevel=1 -Dspring.output.ansi.enabled=always -Dcom.sun.management.jmxremote -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Dmanagement.endpoints.jmx.exposure.include=* -javaagent:C:\Users\abharan\AppData\Local\JetBrains\IntelliJIdea2024.3\captureAgent\debugger-agent.jar -Dkotlinx.coroutines.debug.enable.creation.stack.trace=false -Ddebugger.agent.enable.coroutines=true -Dkotlinx.coroutines.debug.enable.flows.stack.trace=true -Dkotlinx.coroutines.debug.enable.mutable.state.flows.stack.trace=true -Dfile.encoding=UTF-8 
+java_command: com.abharan.javallm.JavaLlmApplication
+java_class_path (initial): F:\javaLLm\JavaLLM\target\classes;C:\Users\abharan\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.4.5\spring-boot-starter-web-3.4.5.jar;C:\Users\abharan\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.5\spring-boot-starter-3.4.5.jar;C:\Users\abharan\.m2\repository\org\springframework\boot\spring-boot\3.4.5\spring-boot-3.4.5.jar;C:\Users\abharan\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.5\spring-boot-autoconfigure-3.4.5.jar;C:\Users\abharan\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.5\spring-boot-starter-logging-3.4.5.jar;C:\Users\abharan\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\abharan\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\abharan\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\abharan\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\abharan\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\abharan\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\abharan\.m2\repository\org\springframework\spring-core\6.2.6\spring-core-6.2.6.jar;C:\Users\abharan\.m2\repository\org\springframework\spring-jcl\6.2.6\spring-jcl-6.2.6.jar;C:\Users\abharan\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\abharan\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.4.5\spring-boot-starter-json-3.4.5.jar;C:\Users\abharan\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.18.3\jackson-databind-2.18.3.jar;C:\Users\abharan\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.3\jackson-annotations-2.18.3.jar;C:\Users\abharan\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.18.3\jackson-core-2.18.3.jar;C:\Users\abharan\.m2\repository\com\fasterxml\jackson\da
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 4194304                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 536870912                                 {product} {ergonomic}
+     bool ManagementServer                         = true                                      {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 8552185856                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 4194304                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 0                                      {pd product} {ergonomic}
+     bool ProfileInterpreter                       = false                                  {pd product} {command line}
+    uintx ProfiledCodeHeapSize                     = 0                                      {pd product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 8552185856                             {manageable} {ergonomic}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+PATH=C:\Python312\Scripts\;C:\Python312\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_202\bin;;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\nodejs\;C:\ProgramData\chocolatey\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\abharan\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\abharan\AppData\Local\Programs\Python\Python313\;C:\Users\abharan\AppData\Local\Microsoft\WindowsApps;C:\Program Files\JetBrains\IntelliJ IDEA 2024.1.3\bin;;C:\Users\abharan\AppData\Roaming\npm;C:\Users\abharan\AppData\Local\Programs\Microsoft VS Code\bin;;C:\Users\abharan\AppData\Local\Programs\Ollama
+USERNAME=abharan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 141 Stepping 1, GenuineIntel
+TMP=C:\Users\abharan\AppData\Local\Temp
+TEMP=C:\Users\abharan\AppData\Local\Temp
+
+
+
+Periodic native trim disabled
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 11 , 64 bit Build 26100 (10.0.26100.3624)
+OS uptime: 7 days 6:05 hours
+Hyper-V role detected
+
+CPU: total 16 (initial active 16) (8 cores per cpu, 2 threads per core) family 6 model 141 stepping 1 microcode 0x44, cx8, cmov, fxsr, ht, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, adx, avx512f, avx512dq, avx512cd, avx512bw, avx512vl, sha, fma, vzeroupper, avx512_vpopcntdq, avx512_vpclmulqdq, avx512_vaes, avx512_vnni, clflush, clflushopt, clwb, avx512_vbmi2, avx512_vbmi, hv
+Processor Information for all 16 processors :
+  Max Mhz: 2304, Current Mhz: 2304, Mhz Limit: 2304
+
+Memory: 4k page, system-wide physical 32619M (8282M free)
+TotalPageFile size 40802M (AvailPageFile size 5M)
+current process WorkingSet (physical memory assigned to process): 14M, peak: 14M
+current process commit charge ("private bytes"): 590M, peak: 598M
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.14+7-LTS) for windows-amd64 JRE (17.0.14+7-LTS), built on Jan  7 2025 20:14:24 by "Administrator" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
