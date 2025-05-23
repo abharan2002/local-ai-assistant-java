@@ -2,7 +2,7 @@
 
 A sleek, responsive chat interface for AI interactions with a focus on user experience and modern design principles. Built with React and designed for seamless integration with any AI backend service.
 
-![AI Chat Interface](https://github.com/yourusername/modern
+![AI Chat Interface](https://github.com/abharan2002/local-ai-assistant-java)
 
 - **Elegant UI/UX**: Clean, modern interface with smooth animations and transitions
 - **Responsive Design**: Fully adaptive layout that works perfectly across all device sizes
